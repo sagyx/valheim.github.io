@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valheim</title>
+    <link rel="icon" href="valheim.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Ponomar&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Вальхейм - Обзор от Сагикса</h1>
+        <button id="muteButton">🔊 Звук включен</button>
+    </header>
+
+    <audio id="backgroundAudio" autoplay loop>
+        <source src="Valheim OST - Meadows.mp3" type="audio/mpeg">
+        Ваш браузер не поддерживает аудио.
+    </audio>
+    <script>
+        const audio = document.getElementById("backgroundAudio");
+        const muteButton = document.getElementById("muteButton");
+
+        audio.volume = 0.1;
+
+        muteButton.addEventListener("click", () => {
+            if (audio.muted) {
+                audio.muted = false;
+                muteButton.textContent = "🔊 Звук включен";
+            } else {
+                audio.muted = true;
+                muteButton.textContent = "🔇 Звук выключен";
+            }
+        });
+    </script>
+
+    <div class="logo-container">
+       <center><img src="valhgeium.jpg" alt="Valheim Logo" class="logo"></center>
+    </div>
+
+    <p>Valheim — это игра, в которой вам предстоит исследовать огромный фэнтезийный мир, пропитанный скандинавской мифологией и культурой викингов. Ваше приключение начнется в самом сердце Вальхейма, месте довольно спокойном. Но берегитесь, ведь чем дальше вы будете продвигаться, тем опаснее будет становиться мир вокруг. К счастью, по пути вас будут ждать не только опасности — вы также будете чаще находить ценные материалы, которые весьма пригодятся для создания смертоносного оружия и крепкой брони. Возводите крепости и заставы по всему миру! А со временем постройте несокрушимый драккар и отправьтесь покорять бескрайние океаны в поиске чужестранных земель... Но постарайтесь не заплыть слишком далеко</p>
+
+    <div class="center-container">
+        <div class="message">Добро пожаловать на сайт о Valheim!</div>
+    
+        <button onclick="showAlert()">Приветствие</button>
+        <button onclick="askFavoriteWeapon()">Ваш ник</button>
+        <button onclick="showGuides()">Показать вики</button>
+    </div>
+    
+    <script>
+        function showAlert() {
+            alert("Добро пожаловать в десятый мир!");
+        }
+
+        function askFavoriteWeapon() {
+            let weapon = prompt("Ваш никнейм в сайте", "Сагикс");
+            if (weapon) {
+                document.querySelector('.message').textContent = `Ваш ник: ${weapon}.`;
+            } else {
+                document.querySelector('.message').textContent = "Ник не выбран.";
+            }
+        }
+
+        function showGuides() {
+    let confirmResult = confirm("Хотите посмотреть википедию про Valheim?");
+    if (confirmResult) {
+        alert("Отлично! Переходим к википедии...");
+        window.location.href = "https://valheim.fandom.com/ru/wiki/Valheim_%D0%92%D0%B8%D0%BA%D0%B8";
+    } else {
+        alert("Может, позже!");
+    }
+}
+</script>
+
+    <h2 style="text-align: center; margin-top: 30px;">Основная информация об игре</h2>
+    <table>
+        <tr>
+            <th>Аспект</th>
+            <th>Описание</th>
+        </tr>
+        <tr>
+            <td>Жанр</td>
+            <td>Выживание</td>
+        </tr>
+        <tr>
+            <td>Вес игры</td>
+            <td>1-2gb</td>
+        </tr>
+        <tr>
+            <td>Разработчик</td>
+            <td><a href="https://irongate.se/" target="_blank">Iron Gate AB</a></td>
+        </tr>
+        <tr>
+            <td>Издатель</td>
+            <td><a href="https://coffeestain.com/" target="_blank">Coffee Stain Publishing</a></td>
+        </tr>
+        <tr>
+            <td>Дата выхода</td>
+            <td>2 февраля 2021 г</td>
+        </tr>
+    </table>
+
+    <div style="text-align: center; margin: auto; background-color: #333; padding: 20px; border-radius: 15px; width: 50%; color: white;">
+        <h3 style="margin-top: 20px; font-size: 28px;">Особенности игры</h3>
+        <ul style="list-style-type: none; padding: 0; margin: 10px 0; font-size: 22px;">
+            <li>•Выживание в суровом мире викингов</li>
+            <li>•Огромный открытый мир</li>
+            <li>•Эпические бои с боссами</li>
+            <li>•Строительство и крафтинг</li>
+        </ul>
+    </div>
+
+    <h4 style="text-align: center; margin-top: 50px; font-size: 36px;">Биомы в Вальхейм</h4>
+    <div class="content">
+        <h4 id="biome-info">Нажмите на кнопку, чтобы узнать больше о биоме!</h4>
+        <img id="biome-image" src="" alt="" style="display: none;">
+        <div class="buttons">
+            <button onclick="changeBiome('Луга')">Луга</button>
+            <button onclick="changeBiome('Черный лес')">Черный лес</button>
+            <button onclick="changeBiome('Болота')">Болота</button>
+            <button onclick="changeBiome('Горы')">Горы</button>
+            <button onclick="changeBiome('Равнины')">Равнины</button>
+        </div>
+    </div>
+
+    <script>
+        
+        function changeBiome(biome) {
+            let description = "";
+            let imageUrl = "";
+
+            switch (biome) {
+                case "Луга":
+                    description = "🌿 Луга — начальный биом с мягким климатом и простыми врагами. Отличное место для базы!";
+                    imageUrl = "meadows.jpg";
+                    break;
+                case "Черный лес":
+                    description = "🌲 Черный лес — темный и опасный биом с сильными врагами, такими как гоблины и тролли.";
+                    imageUrl = "blackforest.jpg";
+                    break;
+                case "Болота":
+                    description = "💀 Болота — мрачный биом с туманом и множеством врагов. Готовьтесь к ядовитым атакам!";
+                    imageUrl = "swamp.jpg";
+                    break;
+                case "Горы":
+                    description = "🏔️ Горы — заснеженные вершины с суровым климатом и драконами. Не забудьте теплую одежду!";
+                    imageUrl = "mountain.jpg";
+                    break;
+                case "Равнины":
+                    description = "🌾 Равнины — красивый, но опасный биом с смертоносными врагами, такими как смертоеды.";
+                    imageUrl = "plains.jpg";
+                    break;
+                default:
+                    description = "Выберите биом, чтобы узнать больше!";
+                    imageUrl = "";
+            }
+
+            document.getElementById("biome-info").innerHTML = description;
+
+            let imageElement = document.getElementById("biome-image");
+            if (imageUrl) {
+                imageElement.src = imageUrl;
+                imageElement.style.display = "block";
+            } else {
+                imageElement.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
